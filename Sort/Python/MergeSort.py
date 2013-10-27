@@ -1,6 +1,6 @@
 class MergeSort:
 
-    def merge(self, left, right):
+    def _merge(self, left, right):
         merged = []
         i, j = 0, 0
         while i < len(left) and j < len(right):
@@ -10,9 +10,11 @@ class MergeSort:
             else:
                 merged.append(right[j])
                 j += 1
+
         while i < len(left):
-            merged.append(left(i))
+            merged.append(left[i])
             i += 1
+
         while j < len(right):
             merged.append(right[j])
             j += 1
@@ -26,7 +28,10 @@ class MergeSort:
         mid = len(array) // 2
         left = self.merge_sort(array[:mid])
         right = self.merge_sort(array[mid:])
-        return list(self.merge(left, right))
+
+        return self._merge(left, right)
 
 if __name__ == '__main__':
-    bs = MergeSort()
+    ms = MergeSort()
+    array = [4, 65, 2, -31, 0, 99, 83, 782, 1]
+    print(ms.merge_sort(array))
