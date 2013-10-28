@@ -4,9 +4,7 @@ class QuickSort:
         if len(array) < 1:
             return array
         else:
-            less = []
-            more = []
-            equal = []
+            less, more, equal = [], [], []
             pivot = array[0]
             for i in array:
                 if i < pivot:
