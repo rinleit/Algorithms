@@ -35,7 +35,6 @@ class HeapSort:
                 self.swap(aList, 0, i)
                 self.moveDown(aList, 0, i - 1)
 
-
 if __name__ == '__main__':
     hs = HeapSort()
     array = [4, 65, 2, -31, 0, 99, 83, 782, 1]
