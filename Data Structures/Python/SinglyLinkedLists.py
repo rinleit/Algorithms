@@ -44,6 +44,18 @@ class LinkedList:
             print(pointer.data, end=" ")
             pointer = pointer.next
 
+    def find_loop(self):
+        slower = self.head
+        faster = self.head.next
+        while():
+            if not faster or not faster > next:
+                return False
+            elif faster == slower or faster.next == slower:
+                return True
+            else:
+                slower = slower.next
+                faster = faster.next.next
+
 if __name__ == '__main__':
     l_list = LinkedList()
     l_list.add_node(1)
