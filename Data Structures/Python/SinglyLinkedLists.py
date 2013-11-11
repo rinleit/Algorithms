@@ -18,7 +18,7 @@ class LinkedList:
         if self.head is None:
             self.head = new_node
 
-        if not self.tail is None:
+        if self.tail is not None:
             self.tail.next = new_node
 
         self.tail = new_node
@@ -28,7 +28,7 @@ class LinkedList:
         pointer = self.head
         i = 0
 
-        while not pointer is None and (i < index):
+        while pointer is not None and (i < index):
             prev = pointer
             pointer = pointer.next
             i += 1
@@ -40,7 +40,7 @@ class LinkedList:
 
     def print_list(self):
         pointer = self.head
-        while not pointer is None:
+        while pointer is not None:
             print(pointer.data, end=" ")
             pointer = pointer.next
 
