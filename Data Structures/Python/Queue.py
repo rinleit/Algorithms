@@ -1,4 +1,4 @@
-# Simple wrapper for stacks as Python's Dequeue implementation already mirrors Queues
+# Simple wrapper for queues as Python's Dequeue implementation already mirrors Queues
 from collections import deque
 
 
