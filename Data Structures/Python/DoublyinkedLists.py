@@ -34,21 +34,3 @@ class LinkedList:
                     current.next.prev = current.prev
                 break
             current = current.next
-
-    def print_list(self):
-        pointer = self.head
-        while pointer is not None:
-            print(pointer.data, end=" ")
-            pointer = pointer.next
-
-    def find_loop(self):
-        slower = self.head
-        faster = self.head.next
-        while():
-            if not faster or not faster > next:
-                return False
-            elif faster == slower or faster.next == slower:
-                return True
-            else:
-                slower = slower.next
-                faster = faster.next.next
