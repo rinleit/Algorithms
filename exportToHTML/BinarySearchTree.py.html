@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>BinarySearchTree.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(204,120,50); font-weight: bold; }
+.s1 { color: rgb(169,183,198); }
+.s2 { color: rgb(204,120,50); }
+.s3 { color: rgb(104,151,187); }
+.s4 { color: rgb(0,128,128); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+BinarySearchTree.py</FONT>
+</center></TD></TR></TABLE>
+<pre>
+
+<span class="s0">class </span><span class="s1">Node: 
+    </span><span class="s0">def </span><span class="s1">__init__(self</span><span class="s2">, </span><span class="s1">data): 
+        self.data = data 
+        self.left = </span><span class="s0">None</span><span class="s1"> 
+        self.right = </span><span class="s0">None</span><span class="s1"> 
+ 
+    </span><span class="s0">def </span><span class="s1">insert(self</span><span class="s2">, </span><span class="s1">data): 
+        </span><span class="s0">if </span><span class="s1">data &lt; self.data: 
+            </span><span class="s0">if </span><span class="s1">self.left </span><span class="s0">is None</span><span class="s1">: 
+                self.left = Node(data) 
+            </span><span class="s0">else</span><span class="s1">: 
+                self.left.insert(data) 
+        </span><span class="s0">else</span><span class="s1">: 
+            </span><span class="s0">if </span><span class="s1">self.right </span><span class="s0">is None</span><span class="s1">: 
+                self.right = Node(data) 
+            </span><span class="s0">else</span><span class="s1">: 
+                self.right.insert(data) 
+ 
+    </span><span class="s0">def </span><span class="s1">lookup(self</span><span class="s2">, </span><span class="s1">data</span><span class="s2">, </span><span class="s1">parent=</span><span class="s0">None</span><span class="s1">): 
+        </span><span class="s0">if </span><span class="s1">data &lt; self.data: 
+            </span><span class="s0">if </span><span class="s1">self.left </span><span class="s0">is None</span><span class="s1">: 
+                </span><span class="s0">return None</span><span class="s2">, </span><span class="s0">None</span><span class="s1"> 
+            </span><span class="s0">return </span><span class="s1">self.left.lookup(data</span><span class="s2">, </span><span class="s1">self) 
+        </span><span class="s0">elif </span><span class="s1">data &gt; self.data: 
+            </span><span class="s0">if </span><span class="s1">self.right </span><span class="s0">is None</span><span class="s1">: 
+                </span><span class="s0">return None</span><span class="s2">, </span><span class="s0">None</span><span class="s1"> 
+            </span><span class="s0">return </span><span class="s1">self.right.lookup(data</span><span class="s2">, </span><span class="s1">self) 
+        </span><span class="s0">else</span><span class="s1">: 
+            </span><span class="s0">return </span><span class="s1">self</span><span class="s2">, </span><span class="s1">parent 
+ 
+    </span><span class="s0">def </span><span class="s1">delete(self</span><span class="s2">, </span><span class="s1">data): 
+        node</span><span class="s2">, </span><span class="s1">parent = self.lookup(data) 
+        </span><span class="s0">if </span><span class="s1">node </span><span class="s0">is not None</span><span class="s1">: 
+            children_count = node.children_count() 
+            </span><span class="s0">if </span><span class="s1">children_count == </span><span class="s3">0</span><span class="s1">: 
+                </span><span class="s0">if </span><span class="s1">parent.left </span><span class="s0">is </span><span class="s1">node: 
+                    parent.left = </span><span class="s0">None</span><span class="s1"> 
+                </span><span class="s0">else</span><span class="s1">: 
+                    parent.right = </span><span class="s0">None</span><span class="s1"> 
+                </span><span class="s0">del </span><span class="s1">node 
+            </span><span class="s0">elif </span><span class="s1">children_count == </span><span class="s3">1</span><span class="s1">: 
+                </span><span class="s0">if </span><span class="s1">node.left: 
+                    n = node.left 
+                </span><span class="s0">else</span><span class="s1">: 
+                    n = node.right 
+                </span><span class="s0">if </span><span class="s1">parent.left </span><span class="s0">is </span><span class="s1">node: 
+                    parent.left = n 
+                </span><span class="s0">else</span><span class="s1">: 
+                    parent.right = n 
+                </span><span class="s0">del </span><span class="s1">node 
+            </span><span class="s0">else</span><span class="s1">: 
+                parent = node 
+                successor = node.right 
+                </span><span class="s0">while </span><span class="s1">successor.left: 
+                    parent = successor 
+                    successor = successor.left 
+                node.data = successor.data 
+                </span><span class="s0">if </span><span class="s1">parent.left == successor: 
+                    parent.left = successor.right 
+                </span><span class="s0">else</span><span class="s1">: 
+                    parent.right = successor.right 
+ 
+    </span><span class="s0">def </span><span class="s1">print_tree(self): 
+        </span><span class="s0">if </span><span class="s1">self.left: 
+            self.left.print_tree() 
+        print(self.data</span><span class="s2">, </span><span class="s1">end=</span><span class="s4">&quot; &quot;</span><span class="s1">) 
+        </span><span class="s0">if </span><span class="s1">self.right: 
+            self.right.print_tree() 
+ 
+</span><span class="s0">if </span><span class="s1">__name__ == </span><span class="s4">'__main__'</span><span class="s1">: 
+    root = Node(</span><span class="s3">9</span><span class="s1">) 
+    root.insert(</span><span class="s3">3</span><span class="s1">) 
+    root.insert(</span><span class="s3">7</span><span class="s1">) 
+    root.insert(</span><span class="s3">13</span><span class="s1">) 
+    root.insert(</span><span class="s3">17</span><span class="s1">) 
+    root.insert(</span><span class="s3">1</span><span class="s1">) 
+    root.insert(</span><span class="s3">4</span><span class="s1">) 
+    root.print_tree()</span></pre>
+</body>
+</html>

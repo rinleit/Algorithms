@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>Stack.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(128,128,128); }
+.s1 { color: rgb(169,183,198); }
+.s2 { color: rgb(204,120,50); font-weight: bold; }
+.s3 { color: rgb(204,120,50); }
+.s4 { color: rgb(0,128,128); }
+.s5 { color: rgb(104,151,187); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+Stack.py</FONT>
+</center></TD></TR></TABLE>
+<pre>
+
+<span class="s0"># Simple wrapper for stacks as Python's List implementation already mirrors Stacks</span><span class="s1"> 
+ 
+ 
+</span><span class="s2">class </span><span class="s1">Stack: 
+    </span><span class="s2">def </span><span class="s1">__init__(self</span><span class="s3">, </span><span class="s1">data=</span><span class="s2">None</span><span class="s1">): 
+        </span><span class="s2">if </span><span class="s1">data </span><span class="s2">is not None</span><span class="s1">: 
+            self.stack = [data] 
+        </span><span class="s2">else</span><span class="s1">: 
+            self.stack = [] 
+ 
+    </span><span class="s2">def </span><span class="s1">__str__(self): 
+        </span><span class="s2">return </span><span class="s1">str(self.stack) 
+ 
+    </span><span class="s2">def </span><span class="s1">add(self</span><span class="s3">, </span><span class="s1">data): 
+        self.stack.append(data) 
+ 
+    </span><span class="s2">def </span><span class="s1">pop(self): 
+        self.stack.pop() 
+ 
+</span><span class="s2">if </span><span class="s1">__name__ == </span><span class="s4">'__main__'</span><span class="s1">: 
+    stack = Stack() 
+    stack.add(</span><span class="s5">4</span><span class="s1">) 
+    stack.add(</span><span class="s5">7</span><span class="s1">) 
+    stack.pop() 
+    print(stack)</span></pre>
+</body>
+</html>

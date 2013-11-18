@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>BucketSort.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(204,120,50); font-weight: bold; }
+.s1 { color: rgb(169,183,198); }
+.s2 { color: rgb(204,120,50); }
+.s3 { color: rgb(104,151,187); }
+.s4 { color: rgb(128,128,128); }
+.s5 { color: rgb(0,128,128); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+BucketSort.py</FONT>
+</center></TD></TR></TABLE>
+<pre>
+
+<span class="s0">import </span><span class="s1">math 
+ 
+ 
+</span><span class="s0">class </span><span class="s1">BucketSort: 
+ 
+    </span><span class="s0">def </span><span class="s1">hashing(self</span><span class="s2">, </span><span class="s1">A): 
+        m = A[</span><span class="s3">0</span><span class="s1">] 
+        </span><span class="s0">for </span><span class="s1">i </span><span class="s0">in </span><span class="s1">range(</span><span class="s3">1</span><span class="s2">, </span><span class="s1">len(A)): 
+            </span><span class="s0">if </span><span class="s1">( m &lt; A[i] ): 
+                m = A[i] 
+        result = [m</span><span class="s2">, </span><span class="s1">int(math.sqrt(len(A)))] 
+        </span><span class="s0">return </span><span class="s1">result 
+ 
+    </span><span class="s0">def </span><span class="s1">re_hashing(self</span><span class="s2">, </span><span class="s1">i</span><span class="s2">, </span><span class="s1">code): 
+        </span><span class="s0">return </span><span class="s1">int(i / code[</span><span class="s3">0</span><span class="s1">] * ( code[</span><span class="s3">1</span><span class="s1">] - </span><span class="s3">1 </span><span class="s1">)) 
+ 
+    </span><span class="s0">def </span><span class="s1">bucketsort(self</span><span class="s2">, </span><span class="s1">A): 
+        </span><span class="s4"># get hash codes</span><span class="s1"> 
+        code = self.hashing(A) 
+        buckets = [list() </span><span class="s0">for </span><span class="s1">_ </span><span class="s0">in </span><span class="s1">range(code[</span><span class="s3">1</span><span class="s1">])] 
+        </span><span class="s4"># distribute data into buckets: O(n)</span><span class="s1"> 
+        </span><span class="s0">for </span><span class="s1">i </span><span class="s0">in </span><span class="s1">A: 
+            x = self.re_hashing(i</span><span class="s2">, </span><span class="s1">code) 
+            buck = buckets[x] 
+            buck.append(i) 
+ 
+        </span><span class="s4"># Sort each bucket: O(n).</span><span class="s1"> 
+        </span><span class="s4"># I mentioned above that the worst case for bucket sort is counting</span><span class="s1"> 
+        </span><span class="s4"># sort. That's because in the worst case, bucket sort may end up</span><span class="s1"> 
+        </span><span class="s4"># with one bucket per key. In such case, sorting each bucket would</span><span class="s1"> 
+        </span><span class="s4"># take 1^2 = O(1). Even after allowing for some probabilistic</span><span class="s1"> 
+        </span><span class="s4"># variance, to sort each bucket would still take 2-1/n, which is</span><span class="s1"> 
+        </span><span class="s4"># still a constant. Hence, sorting all the buckets takes O(n).</span><span class="s1"> 
+ 
+        </span><span class="s0">for </span><span class="s1">bucket </span><span class="s0">in </span><span class="s1">buckets: 
+            </span><span class="s4"># FIX ME</span><span class="s1"> 
+            insertionsort(bucket) 
+ 
+        ndx = </span><span class="s3">0</span><span class="s1"> 
+        </span><span class="s4"># merge the buckets: O(n)</span><span class="s1"> 
+        </span><span class="s0">for </span><span class="s1">b </span><span class="s0">in </span><span class="s1">range(len(buckets)): 
+            </span><span class="s0">for </span><span class="s1">v </span><span class="s0">in </span><span class="s1">buckets[b]: 
+                A[ndx] = v 
+                ndx += </span><span class="s3">1</span><span class="s1"> 
+ 
+</span><span class="s0">if </span><span class="s1">__name__ == </span><span class="s5">'__main__'</span><span class="s1">: 
+    bs = BucketSort() 
+    array = [</span><span class="s3">4</span><span class="s2">, </span><span class="s3">65</span><span class="s2">, </span><span class="s3">2</span><span class="s2">, </span><span class="s1">-</span><span class="s3">31</span><span class="s2">, </span><span class="s3">0</span><span class="s2">, </span><span class="s3">99</span><span class="s2">, </span><span class="s3">83</span><span class="s2">, </span><span class="s3">782</span><span class="s2">, </span><span class="s3">1</span><span class="s1">] 
+    print(bs.bucketsort(array))</span></pre>
+</body>
+</html>

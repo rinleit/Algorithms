@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>Strings.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(204,120,50); font-weight: bold; }
+.s1 { color: rgb(169,183,198); }
+.s2 { color: rgb(204,120,50); }
+.s3 { color: rgb(104,151,187); }
+.s4 { color: rgb(0,128,128); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+Strings.py</FONT>
+</center></TD></TR></TABLE>
+<pre>
+
+<span class="s0">class </span><span class="s1">Strings: 
+ 
+    </span><span class="s0">def </span><span class="s1">sub_string(self</span><span class="s2">, </span><span class="s1">a</span><span class="s2">, </span><span class="s1">b): 
+        </span><span class="s0">return </span><span class="s1">a </span><span class="s0">in </span><span class="s1">b 
+ 
+    </span><span class="s0">def </span><span class="s1">a_to_i(self</span><span class="s2">, </span><span class="s1">string): 
+        sum</span><span class="s2">, </span><span class="s1">neg = </span><span class="s3">0</span><span class="s2">, </span><span class="s0">False</span><span class="s1"> 
+ 
+        </span><span class="s0">if </span><span class="s1">string[</span><span class="s3">0</span><span class="s1">] == </span><span class="s4">&quot;-&quot;</span><span class="s1">: 
+            neg = </span><span class="s0">True</span><span class="s1"> 
+            string = string[</span><span class="s3">1</span><span class="s1">:] 
+ 
+        </span><span class="s0">for </span><span class="s1">i </span><span class="s0">in </span><span class="s1">range(len(string)): 
+            sum = (sum * </span><span class="s3">10</span><span class="s1">) + int(string[i]) 
+ 
+        </span><span class="s0">if </span><span class="s1">neg: 
+            </span><span class="s0">return </span><span class="s1">sum * -</span><span class="s3">1</span><span class="s1"> 
+        </span><span class="s0">else</span><span class="s1">: 
+            </span><span class="s0">return </span><span class="s1">sum 
+ 
+    </span><span class="s0">def </span><span class="s1">reverse_word(self</span><span class="s2">, </span><span class="s1">word): 
+        </span><span class="s0">return </span><span class="s1">word[::-</span><span class="s3">1</span><span class="s1">] 
+ 
+</span><span class="s0">if </span><span class="s1">__name__ == </span><span class="s4">'__main__'</span><span class="s1">: 
+    strs = Strings() 
+    print(strs.sub_string(</span><span class="s4">&quot;bat&quot;</span><span class="s2">, </span><span class="s4">&quot;abate&quot;</span><span class="s1">)) 
+    print(strs.a_to_i(</span><span class="s4">&quot;-345623452345&quot;</span><span class="s1">)) 
+    print(strs.reverse_word(</span><span class="s4">&quot;this is a sentence&quot;</span><span class="s1">))</span></pre>
+</body>
+</html>

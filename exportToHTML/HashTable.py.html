@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>HashTable.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(128,128,128); }
+.s1 { color: rgb(169,183,198); }
+.s2 { color: rgb(204,120,50); font-weight: bold; }
+.s3 { color: rgb(204,120,50); }
+.s4 { color: rgb(0,128,128); }
+.s5 { color: rgb(104,151,187); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+HashTable.py</FONT>
+</center></TD></TR></TABLE>
+<pre>
+
+<span class="s0"># Simple wrapper for hash tables as Python's Dictionary implementation already mirrors it</span><span class="s1"> 
+</span><span class="s2">from </span><span class="s1">collections </span><span class="s2">import </span><span class="s1">deque 
+ 
+ 
+</span><span class="s2">class </span><span class="s1">HashTable: 
+    </span><span class="s2">def </span><span class="s1">__init__(self): 
+        self.hash_table = {} 
+ 
+    </span><span class="s2">def </span><span class="s1">__str__(self): 
+        </span><span class="s2">return </span><span class="s1">str(self.hash_table) 
+ 
+    </span><span class="s2">def </span><span class="s1">insert(self</span><span class="s3">, </span><span class="s1">key</span><span class="s3">, </span><span class="s1">value): 
+        self.hash_table[key] = value 
+ 
+    </span><span class="s2">def </span><span class="s1">remove(self</span><span class="s3">, </span><span class="s1">key): 
+        </span><span class="s2">del </span><span class="s1">self.hash_table[key] 
+ 
+    </span><span class="s2">def </span><span class="s1">find(self</span><span class="s3">, </span><span class="s1">key): 
+        self.hash_table.get(key) 
+ 
+    </span><span class="s2">def </span><span class="s1">keys(self): 
+        self.hash_table.keys() 
+ 
+</span><span class="s2">if </span><span class="s1">__name__ == </span><span class="s4">'__main__'</span><span class="s1">: 
+    hash = HashTable() 
+    hash.insert(</span><span class="s4">'a'</span><span class="s3">, </span><span class="s5">1</span><span class="s1">) 
+    hash.insert(</span><span class="s4">'b'</span><span class="s3">, </span><span class="s5">2</span><span class="s1">) 
+    hash.insert(</span><span class="s4">'c'</span><span class="s3">, </span><span class="s5">3</span><span class="s1">) 
+    print(hash.keys()) 
+    hash.remove(</span><span class="s4">'b'</span><span class="s1">) 
+    print(hash)</span></pre>
+</body>
+</html>

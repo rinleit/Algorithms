@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>HeapSort.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(128,128,128); }
+.s1 { color: rgb(169,183,198); }
+.s2 { color: rgb(204,120,50); font-weight: bold; }
+.s3 { color: rgb(204,120,50); }
+.s4 { color: rgb(104,151,187); }
+.s5 { color: rgb(0,128,128); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+HeapSort.py</FONT>
+</center></TD></TR></TABLE>
+<pre>
+
+<span class="s0"># Implementation from http://www.geekviewpoint.com/python/sorting/heapsort</span><span class="s1"> 
+ 
+ 
+</span><span class="s2">class </span><span class="s1">HeapSort: 
+ 
+    </span><span class="s2">def </span><span class="s1">moveDown(self</span><span class="s3">, </span><span class="s1">aList</span><span class="s3">, </span><span class="s1">first</span><span class="s3">, </span><span class="s1">last): 
+        largest = </span><span class="s4">2 </span><span class="s1">* first + </span><span class="s4">1</span><span class="s1"> 
+        </span><span class="s2">while </span><span class="s1">largest &lt;= last: 
+            </span><span class="s0"># right child exists and is larger than left child</span><span class="s1"> 
+            </span><span class="s2">if </span><span class="s1">( largest &lt; last ) </span><span class="s2">and </span><span class="s1">( aList[largest] &lt; aList[largest + </span><span class="s4">1</span><span class="s1">] ): 
+                largest += </span><span class="s4">1</span><span class="s1"> 
+ 
+            </span><span class="s0"># right child is larger than parent</span><span class="s1"> 
+            </span><span class="s2">if </span><span class="s1">aList[largest] &gt; aList[first]: 
+                self.swap(aList</span><span class="s3">, </span><span class="s1">largest</span><span class="s3">, </span><span class="s1">first) 
+                </span><span class="s0"># move down to largest child</span><span class="s1"> 
+                first = largest 
+                largest = </span><span class="s4">2 </span><span class="s1">* first + </span><span class="s4">1</span><span class="s1"> 
+            </span><span class="s2">else</span><span class="s1">: 
+                </span><span class="s2">return </span><span class="s0"># force exit</span><span class="s1"> 
+ 
+    </span><span class="s2">def </span><span class="s1">swap(self</span><span class="s3">, </span><span class="s1">A</span><span class="s3">, </span><span class="s1">x</span><span class="s3">, </span><span class="s1">y): 
+        tmp = A[x] 
+        A[x] = A[y] 
+        A[y] = tmp 
+ 
+    </span><span class="s2">def </span><span class="s1">heap_sort(self</span><span class="s3">, </span><span class="s1">aList): 
+        </span><span class="s0"># convert aList to heap</span><span class="s1"> 
+        length = len(aList) - </span><span class="s4">1</span><span class="s1"> 
+        least_parent = int(length / </span><span class="s4">2</span><span class="s1">) 
+        </span><span class="s2">for </span><span class="s1">i </span><span class="s2">in </span><span class="s1">range(least_parent</span><span class="s3">, </span><span class="s1">-</span><span class="s4">1</span><span class="s3">, </span><span class="s1">-</span><span class="s4">1</span><span class="s1">): 
+            self.moveDown(aList</span><span class="s3">, </span><span class="s1">i</span><span class="s3">, </span><span class="s1">length) 
+ 
+        </span><span class="s0"># flatten heap into sorted array</span><span class="s1"> 
+        </span><span class="s2">for </span><span class="s1">i </span><span class="s2">in </span><span class="s1">range(length</span><span class="s3">, </span><span class="s4">0</span><span class="s3">, </span><span class="s1">-</span><span class="s4">1</span><span class="s1">): 
+            </span><span class="s2">if </span><span class="s1">aList[</span><span class="s4">0</span><span class="s1">] &gt; aList[i]: 
+                self.swap(aList</span><span class="s3">, </span><span class="s4">0</span><span class="s3">, </span><span class="s1">i) 
+                self.moveDown(aList</span><span class="s3">, </span><span class="s4">0</span><span class="s3">, </span><span class="s1">i - </span><span class="s4">1</span><span class="s1">) 
+ 
+</span><span class="s2">if </span><span class="s1">__name__ == </span><span class="s5">'__main__'</span><span class="s1">: 
+    hs = HeapSort() 
+    array = [</span><span class="s4">4</span><span class="s3">, </span><span class="s4">65</span><span class="s3">, </span><span class="s4">2</span><span class="s3">, </span><span class="s1">-</span><span class="s4">31</span><span class="s3">, </span><span class="s4">0</span><span class="s3">, </span><span class="s4">99</span><span class="s3">, </span><span class="s4">83</span><span class="s3">, </span><span class="s4">782</span><span class="s3">, </span><span class="s4">1</span><span class="s1">] 
+    print(hs.heap_sort(array))</span></pre>
+</body>
+</html>

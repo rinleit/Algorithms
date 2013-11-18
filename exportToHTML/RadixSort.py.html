@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>RadixSort.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(128,128,128); }
+.s1 { color: rgb(169,183,198); }
+.s2 { color: rgb(204,120,50); font-weight: bold; }
+.s3 { color: rgb(204,120,50); }
+.s4 { color: rgb(104,151,187); }
+.s5 { color: rgb(0,128,128); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+RadixSort.py</FONT>
+</center></TD></TR></TABLE>
+<pre>
+
+<span class="s0"># Code taken from http://www.geekviewpoint.com/python/sorting/radixsort</span><span class="s1"> 
+</span><span class="s0"># TO-DO: refactor for negative values too</span><span class="s1"> 
+</span><span class="s2">class </span><span class="s1">RadixSort: 
+ 
+    </span><span class="s2">def </span><span class="s1">radix_sort(self</span><span class="s3">, </span><span class="s1">array): 
+        RADIX = </span><span class="s4">10</span><span class="s1"> 
+        max_length = </span><span class="s2">False</span><span class="s1"> 
+        tmp</span><span class="s3">, </span><span class="s1">placement = -</span><span class="s4">1</span><span class="s3">, </span><span class="s4">1</span><span class="s1"> 
+ 
+        </span><span class="s2">while not </span><span class="s1">max_length: 
+            max_length = </span><span class="s2">True</span><span class="s1"> 
+            </span><span class="s0"># declare and initialize buckets</span><span class="s1"> 
+            buckets = [list() </span><span class="s2">for </span><span class="s1">_ </span><span class="s2">in </span><span class="s1">range(RADIX)] 
+ 
+            </span><span class="s0"># split aList between lists</span><span class="s1"> 
+            </span><span class="s2">for </span><span class="s1">i </span><span class="s2">in </span><span class="s1">array: 
+                tmp = i / placement 
+                buckets[int(tmp % RADIX)].append(i) 
+                </span><span class="s2">if </span><span class="s1">max_length </span><span class="s2">and </span><span class="s1">tmp &gt; </span><span class="s4">0</span><span class="s1">: 
+                    max_length = </span><span class="s2">False</span><span class="s1"> 
+ 
+            </span><span class="s0"># empty lists into aList array</span><span class="s1"> 
+            a = </span><span class="s4">0</span><span class="s1"> 
+            </span><span class="s2">for </span><span class="s1">b </span><span class="s2">in </span><span class="s1">range(RADIX): 
+                buck = buckets[b] 
+                </span><span class="s2">for </span><span class="s1">i </span><span class="s2">in </span><span class="s1">buck: 
+                    array[a] = i 
+                    a += </span><span class="s4">1</span><span class="s1"> 
+ 
+            </span><span class="s0"># move to next digit</span><span class="s1"> 
+            placement *= RADIX 
+ 
+        </span><span class="s2">return </span><span class="s1">array 
+ 
+</span><span class="s2">if </span><span class="s1">__name__ == </span><span class="s5">'__main__'</span><span class="s1">: 
+    rs = RadixSort() 
+    array = [</span><span class="s4">18</span><span class="s3">, </span><span class="s4">5</span><span class="s3">, </span><span class="s4">100</span><span class="s3">, </span><span class="s4">3</span><span class="s3">, </span><span class="s4">1</span><span class="s3">, </span><span class="s4">19</span><span class="s3">, </span><span class="s4">6</span><span class="s3">, </span><span class="s4">0</span><span class="s3">, </span><span class="s4">7</span><span class="s3">, </span><span class="s4">4</span><span class="s3">, </span><span class="s4">2</span><span class="s1">] 
+    print(rs.radix_sort(array))</span></pre>
+</body>
+</html>

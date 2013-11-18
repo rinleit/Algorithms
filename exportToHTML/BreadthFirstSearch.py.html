@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>BreadthFirstSearch.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(204,120,50); font-weight: bold; }
+.s1 { color: rgb(169,183,198); }
+.s2 { color: rgb(204,120,50); }
+.s3 { color: rgb(104,151,187); }
+.s4 { color: rgb(0,128,128); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+BreadthFirstSearch.py</FONT>
+</center></TD></TR></TABLE>
+<pre>
+
+<span class="s0">from </span><span class="s1">queue </span><span class="s0">import </span><span class="s1">Queue 
+ 
+</span><span class="s0">class </span><span class="s1">BreadthFirstSearch: 
+ 
+    </span><span class="s0">def </span><span class="s1">bfs(self</span><span class="s2">, </span><span class="s1">graph</span><span class="s2">, </span><span class="s1">start</span><span class="s2">, </span><span class="s1">end): 
+        queue = Queue() 
+        path = [start] 
+        queue.put(path) 
+        visited = set([start]) 
+ 
+        </span><span class="s0">while not </span><span class="s1">queue.empty(): 
+            path = queue.get() 
+            last = path[-</span><span class="s3">1</span><span class="s1">] 
+            </span><span class="s0">if </span><span class="s1">last == end: 
+                </span><span class="s0">return </span><span class="s1">path 
+            </span><span class="s0">for </span><span class="s1">node </span><span class="s0">in </span><span class="s1">graph[last]: 
+                </span><span class="s0">if </span><span class="s1">node </span><span class="s0">not in </span><span class="s1">visited: 
+                    visited.add(node) 
+                    queue.put(path + [node]) 
+ 
+ 
+</span><span class="s0">if </span><span class="s1">__name__ == </span><span class="s4">'__main__'</span><span class="s1">: 
+    bfs = BreadthFirstSearch() 
+    graph = {</span><span class="s3">1</span><span class="s1">: [</span><span class="s3">2</span><span class="s2">, </span><span class="s3">3</span><span class="s1">]</span><span class="s2">,</span><span class="s1"> 
+             </span><span class="s3">2</span><span class="s1">: [</span><span class="s3">1</span><span class="s2">, </span><span class="s3">4</span><span class="s2">, </span><span class="s3">6</span><span class="s1">]</span><span class="s2">,</span><span class="s1"> 
+             </span><span class="s3">3</span><span class="s1">: [</span><span class="s3">1</span><span class="s2">, </span><span class="s3">4</span><span class="s1">]</span><span class="s2">,</span><span class="s1"> 
+             </span><span class="s3">4</span><span class="s1">: [</span><span class="s3">2</span><span class="s2">, </span><span class="s3">3</span><span class="s2">, </span><span class="s3">5</span><span class="s1">]</span><span class="s2">,</span><span class="s1"> 
+             </span><span class="s3">5</span><span class="s1">: [</span><span class="s3">2</span><span class="s2">, </span><span class="s3">4</span><span class="s2">, </span><span class="s3">6</span><span class="s1">]</span><span class="s2">,</span><span class="s1"> 
+             </span><span class="s3">6</span><span class="s1">: [</span><span class="s3">2</span><span class="s2">, </span><span class="s3">5</span><span class="s2">, </span><span class="s3">9</span><span class="s1">]} 
+    print(</span><span class="s4">&quot;DFS: &quot;</span><span class="s2">, </span><span class="s1">bfs.bfs(graph</span><span class="s2">, </span><span class="s3">1</span><span class="s2">, </span><span class="s3">6</span><span class="s1">)) 
+</span></pre>
+</body>
+</html>
