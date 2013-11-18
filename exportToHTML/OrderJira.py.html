@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>OrderJira.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,128); font-weight: bold; }
+.s1 { }
+.s2 { color: rgb(204,120,50); }
+.s3 { color: rgb(0,0,255); }
+.s4 { color: rgb(128,128,128); font-style: italic; }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+OrderJira.py</FONT>
+</center></TD></TR></TABLE>
+<pre>
+
+<span class="s0">import </span><span class="s1">time 
+ 
+ 
+</span><span class="s0">class </span><span class="s1">Order: 
+    </span><span class="s0">def </span><span class="s1">__init__(self</span><span class="s2">, </span><span class="s1">data): 
+        self.data = data 
+        self.order_created = time.gmtime() 
+        self.order_completed = </span><span class="s0">None</span><span class="s1"> 
+        self.order_served = </span><span class="s0">None</span><span class="s1"> 
+ 
+    </span><span class="s0">def </span><span class="s1">update_completed(self): 
+        self.order_completed = time.gmtime() 
+ 
+    </span><span class="s0">def </span><span class="s1">update_served(self): 
+        self.order_completed = time.gmtime() 
+ 
+ 
+</span><span class="s0">class </span><span class="s1">Orders: 
+    </span><span class="s0">def </span><span class="s1">__init__(self): 
+        self.orders = [] 
+ 
+    </span><span class="s0">def </span><span class="s1">add(self</span><span class="s2">, </span><span class="s1">order): 
+        </span><span class="s0">if </span><span class="s1">order </span><span class="s0">is not None</span><span class="s1">: 
+            self.orders.append(order) 
+ 
+    </span><span class="s0">def </span><span class="s1">remove(self</span><span class="s2">, </span><span class="s1">order): 
+        </span><span class="s0">if </span><span class="s1">order </span><span class="s0">is not None</span><span class="s1">: 
+            self.orders.remove(order) 
+ 
+    </span><span class="s0">def </span><span class="s1">get_order(self</span><span class="s2">, </span><span class="s1">number): 
+        </span><span class="s0">for </span><span class="s1">order </span><span class="s0">in </span><span class="s1">self.orders: 
+            </span><span class="s0">if </span><span class="s1">order.data == number: 
+                </span><span class="s0">return </span><span class="s1">order 
+ 
+    </span><span class="s0">def </span><span class="s1">orders(self): 
+        len(self.orders) 
+ 
+ 
+</span><span class="s0">class </span><span class="s1">OrderSystem: 
+    </span><span class="s0">def </span><span class="s1">__init__(self): 
+        self.orders_in_progress = Orders() 
+        self.orders_complete = Orders() 
+        self.order_num = </span><span class="s3">1</span><span class="s1"> 
+ 
+    </span><span class="s0">def </span><span class="s1">add_order(self): 
+        self.orders_in_progress.add(Order(self.order_num)) 
+        self.order_num += </span><span class="s3">1</span><span class="s1"> 
+ 
+    </span><span class="s0">def </span><span class="s1">remove_incomplete_order(self</span><span class="s2">, </span><span class="s1">order_num): 
+        self.orders_in_progress.remove(self.orders_in_progress.get_order(order_num)) 
+ 
+    </span><span class="s4"># Remove from in progress queue and add to complete queue</span><span class="s1"> 
+    </span><span class="s0">def </span><span class="s1">complete_order(self</span><span class="s2">, </span><span class="s1">order_num): 
+        order = self.orders_in_progress.get_order(order_num) 
+        self.orders_in_progress.remove(order) 
+        order.update_completed() 
+        self.orders_complete.add(order) 
+ 
+    </span><span class="s0">def </span><span class="s1">serve_order(self</span><span class="s2">, </span><span class="s1">order_num): 
+        order = self.orders_complete.get_order(order_num) 
+        order.update_served() 
+        self.orders_complete.remove(order) 
+ 
+    </span><span class="s0">def </span><span class="s1">remove_order(self</span><span class="s2">, </span><span class="s1">order_num): 
+        self.orders_complete.remove(self.orders_complete.get_order(order_num))</span></pre>
+</body>
+</html>
