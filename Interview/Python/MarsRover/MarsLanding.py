@@ -9,4 +9,24 @@ class MarsLanding:
     """
 
     def __init__(self):
-        return NotImplemented
+        self
+
+    def process_input(self):
+        f = open('input1', 'r')
+        try:
+            upper_corner = f.readline().split()
+            if len(upper_corner) != 2:
+                return "Malformed input. First line should be of the format X Y, where X and Y are integers."
+            else:
+                try:
+                    upper_cords = map(int, upper_corner)
+                except ValueError:
+                    return "Malformed input. First line should be of the format X Y, where X and Y are integers."
+                for coord in upper_cords:
+                    print(coord)
+        finally:
+            f.close()
+
+if __name__ == '__main__':
+    landing = MarsLanding()
+    print(landing.process_input())
