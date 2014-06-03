@@ -1,3 +1,7 @@
+import Grid
+from InputErrors import *
+
+
 class MarsLanding:
     """ Main class for Mars Rover solution.
     This program will read in an input file.
@@ -11,22 +15,40 @@ class MarsLanding:
     def __init__(self):
         self
 
-    def process_input(self):
-        f = open('input1', 'r')
+    def process_input(self, input_file):
+        f = open(input_file, 'r')
         try:
-            upper_corner = f.readline().split()
-            if len(upper_corner) != 2:
-                return "Malformed input. First line should be of the format X Y, where X and Y are integers."
-            else:
-                try:
-                    upper_cords = map(int, upper_corner)
-                except ValueError:
-                    return "Malformed input. First line should be of the format X Y, where X and Y are integers."
-                for coord in upper_cords:
-                    print(coord)
+            grid_input = f.readline().split()
+            grid = self.process_grid(grid_input)
+
+            remaining_lines = f.readlines()
+            if len(remaining_lines) % 2:
+                raise RoverInputLengthError
+            rovers = []
+            for line1, line2 in zip(remaining_lines[::2], remaining_lines[1::2]):
+                line1 = line1.strip()
+                line2 = line2.strip()
+                self.create_rover(line1, line2)
+
+        except (InitInputLengthError, InitInputTypeError, RoverInputLengthError) as e:
+            print e.msg
         finally:
             f.close()
 
+    def process_grid(self, grid_input):
+        if len(grid_input) != 2:
+            raise InitInputLengthError
+        else:
+            try:
+                upper_cords = map(int, grid_input)
+                return Grid.Grid(upper_cords[0], upper_cords[1])
+            except ValueError:
+                raise InitInputTypeError
+
+    def create_rover(self, inital_position, commands):
+        pass
+
+
 if __name__ == '__main__':
     landing = MarsLanding()
-    print(landing.process_input())
+    landing.process_input('input1')
