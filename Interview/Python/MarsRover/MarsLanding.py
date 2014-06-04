@@ -1,4 +1,4 @@
-import Grid
+from Grid import *
 from InputErrors import *
 
 
@@ -26,12 +26,12 @@ class MarsLanding:
                 raise RoverInputLengthError
             rovers = []
             for line1, line2 in zip(remaining_lines[::2], remaining_lines[1::2]):
-                line1 = line1.strip()
-                line2 = line2.strip()
-                self.create_rover(line1, line2)
+                line1 = line1.strip().split()
+                line2 = line2.strip().split()
+                self.create_rover(line1, line2, grid)
 
-        except (InitInputLengthError, InitInputTypeError, RoverInputLengthError) as e:
-            print e.msg
+        except InputError as e:
+            print(e.msg)
         finally:
             f.close()
 
@@ -40,12 +40,23 @@ class MarsLanding:
             raise InitInputLengthError
         else:
             try:
-                upper_cords = map(int, grid_input)
-                return Grid.Grid(upper_cords[0], upper_cords[1])
+                upper_cords = list(map(int, grid_input))
+                return Grid(upper_cords[0], upper_cords[1])
             except ValueError:
                 raise InitInputTypeError
 
-    def create_rover(self, inital_position, commands):
+    def create_rover(self, inital_position, commands, grid):
+        if len(inital_position) != 3:
+            raise RoverInitLengthError
+        else:
+            try:
+                if not grid.is_valid_position(inital_position[0], inital_position[1]):
+                    raise RoverInvalidPositionError
+
+                rover_position = list(map(int, inital_position[:2]))
+                rover_heading = inital_position[2]
+            except ValueError:
+                raise InitInputTypeError
         pass
 
 
