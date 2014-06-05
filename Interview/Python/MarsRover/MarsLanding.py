@@ -1,5 +1,7 @@
-from Grid import *
+from Plateau import *
+from Rover import *
 from InputErrors import *
+import re
 
 
 class MarsLanding:
@@ -18,46 +20,40 @@ class MarsLanding:
     def process_input(self, input_file):
         f = open(input_file, 'r')
         try:
-            grid_input = f.readline().split()
-            grid = self.process_grid(grid_input)
+            plateau_input = f.readline()
+            plateau = self.process_plateau(plateau_input)
 
             remaining_lines = f.readlines()
             if len(remaining_lines) % 2:
-                raise RoverInputLengthError
+                raise RoverSetupError
             rovers = []
             for line1, line2 in zip(remaining_lines[::2], remaining_lines[1::2]):
-                line1 = line1.strip().split()
-                line2 = line2.strip().split()
-                self.create_rover(line1, line2, grid)
-
+                line1 = line1.strip()
+                line2 = line2.strip()
+                rover = self.create_rover(line1, line2, plateau)
+                if rover:
+                    rovers.append(rover)
         except InputError as e:
             print(e.msg)
         finally:
             f.close()
 
-    def process_grid(self, grid_input):
-        if len(grid_input) != 2:
-            raise InitInputLengthError
+    def process_plateau(self, plateau_input):
+        raw_plateau = re.match('^(\d \d)$', plateau_input)
+        if raw_plateau:
+            return Plateau(raw_plateau.group().split())
         else:
-            try:
-                upper_cords = list(map(int, grid_input))
-                return Grid(upper_cords[0], upper_cords[1])
-            except ValueError:
-                raise InitInputTypeError
+            raise PlateauInputError
 
-    def create_rover(self, inital_position, commands, grid):
-        if len(inital_position) != 3:
-            raise RoverInitLengthError
-        else:
-            try:
-                if not grid.is_valid_position(inital_position[0], inital_position[1]):
-                    raise RoverInvalidPositionError
-
-                rover_position = list(map(int, inital_position[:2]))
-                rover_heading = inital_position[2]
-            except ValueError:
-                raise InitInputTypeError
-        pass
+    def create_rover(self, start_position, commands, plateau):
+        raw_position = re.match('^(\d \d [NESW])$', start_position)
+        raw_commands = re.match('^[LRM]+$', commands)
+        if raw_position and raw_commands:
+            formatted_position = raw_position.group().split()
+            if not plateau.is_valid_position(formatted_position):
+                print(RoverInvalidPositionError().warning(raw_position.group()))
+            else:
+                return Rover(formatted_position)
 
 
 if __name__ == '__main__':

@@ -3,32 +3,24 @@ class InputError(Exception):
         self.msg = "Generic input error."
 
 
-class InitInputLengthError(InputError):
+class PlateauInputError(InputError):
     def __init__(self):
-        self.msg = "Malformed grid initialization input. Please input exactly two integers on the first line, " \
-                   "in order to determine the size of the plateau."
-
-
-class InitInputTypeError(InputError):
-    def __init__(self):
-        self.msg = "Malformed grid initialization input. Please ensure the first line contains two integers, " \
-                   "to specify the size of the plateau."
+        self.msg = "Malformed grid initialization input. The first line be of the format X Y, " \
+                   "where X and Y are two integers."
 
 
 class RoverSetupError(InputError):
     def __init__(self):
-        self.msg = "Malformed rover setup input. Please ensure that for each rover, " \
-                   "it's starting position and heading is specified on one line, " \
-                   "and it's instructions on the line directly proceeding that."
-
-
-class RoverInitLengthError(InputError):
-    def __init__(self):
-        self.msg = "Malformed rover initialization. Please ensure that the first line of each rover is " \
-                   "of the format X Y Z, where X and Y are integers that indicate the starting co-ordinate, " \
-                   "and Z is N E S or W to indicate it's initial heading."
+        self.msg = "Malformed rover setup input. Each rover should have two corresponding lines," \
+                   "the first of the format X Y Z, where X and Y are integers indicating their starting co-ordinate" \
+                   "and Z is N E S or W to indiate it's initial heading. " \
+                   "The second should contain a series of characters that are either L R or M to indicate it's " \
+                   "movement path on the plateau"
 
 
 class RoverInvalidPositionError(InputError):
     def __init__(self):
         self.msg = "Malformed rover initialization. Please ensure that each rover is on the plateau to start."
+
+    def warning(self, raw_input):
+        return "WARNING: Could not create rover for input '%s'; rover is not on the plateau." % raw_input
