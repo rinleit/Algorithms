@@ -1,20 +1,29 @@
 import unittest
+import Plateau
+import Rover
 
 
 class RoverTest(unittest.TestCase):
 
-    def normal_rover(self):
-        return NotImplemented
+    def testNormalRover(self):
+        plateau = Plateau.Plateau(5, 3)
+        rover = Rover.Rover(1, 2, 'N', 'L', plateau)
+        self.assertEquals(rover.x, 1)
+        self.assertEquals(rover.y, 2)
+        self.assertEquals(rover.orientation, 'N')
+        self.assertEquals(rover.commands, 'L')
+        self.assertEquals(rover.plateau, plateau)
 
-    def bad_rover(self):
-        return NotImplemented
+    def testRoverInvalidCoordinates(self):
+        plateau = Plateau.Plateau(5, 3)
+        self.assertRaises(ValueError, Rover.Rover, 'a', 2, 'N', 'L', plateau)
 
-    def normal_move(self):
-        return NotImplemented
+    def testRoverInvalidOrientation(self):
+        plateau = Plateau.Plateau(5, 3)
+        self.assertRaises(ValueError, Rover.Rover, 1, 2, 3, 'L', plateau)
 
-    def edge_move(self):
-        return NotImplemented
-
+    def testExploreEmptyCommands(self):
+        NotImplemented
 
 
 def main():

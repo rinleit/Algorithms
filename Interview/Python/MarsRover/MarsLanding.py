@@ -64,7 +64,7 @@ class MarsLanding:
             if not plateau.is_valid_position(coordinates[0], coordinates[1]):
                 print(RoverInvalidPositionError().warning(raw_position.group()))
             else:
-                return Rover(formatted_position, raw_commands.group(), plateau)
+                return Rover(coordinates[0], coordinates[1], formatted_position[2], raw_commands.group(), plateau)
         else:
             print(RoverSetupError().warning(start_position, commands))
 

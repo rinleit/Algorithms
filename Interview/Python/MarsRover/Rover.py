@@ -1,9 +1,9 @@
 class Rover:
 
-    def __init__(self, start_position, commands, plateau):
-        self.x = int(start_position[0])
-        self.y = int(start_position[1])
-        self.orientation = start_position[2]
+    def __init__(self, x, y, orientation, commands, plateau):
+        self.x = int(x)
+        self.y = int(y)
+        self.orientation = orientation
         self.commands = commands
         self.plateau = plateau
 
