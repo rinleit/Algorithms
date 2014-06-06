@@ -14,13 +14,15 @@ class MarsLanding:
         The second line will be the instructions for that rover.
     The output will be each rover's final coordinates and orientation.
     """
+    def __init__(self):
+        self
 
     def process_input(self, input_file):
         f = open(input_file, 'r')
         try:
             # Read the first line and create the plateau for the rovers
             plateau_input = f.readline()
-            plateau = self.process_plateau(plateau_input)
+            plateau = self.create_plateau(plateau_input)
 
             # Read the rest of the lines
             remaining_lines = f.readlines()
@@ -45,7 +47,7 @@ class MarsLanding:
             # Close the file handler even if an error was thrown during execution
             f.close()
 
-    def process_plateau(self, plateau_input):
+    def create_plateau(self, plateau_input):
         raw_plateau = re.match('^(\d \d)$', plateau_input)
         if raw_plateau:
             coordinates = raw_plateau.group().split()

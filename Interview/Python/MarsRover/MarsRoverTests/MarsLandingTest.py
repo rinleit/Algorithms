@@ -1,23 +1,46 @@
 import unittest
+import MarsLanding
 
 
 class MarsLandingTest(unittest.TestCase):
 
-    def empty_input(self):
+    def testCreateNormalPlateu(self):
         return NotImplemented
 
-    def malformed_input(self):
+    def testInvalidPlateu(self):
         return NotImplemented
 
-    def lonewolf_squad(self):
+
+
+    def testCreateNormalRover(self):
         return NotImplemented
 
-    def duo_squad(self):
+    def testBadPositionRover(self):
         return NotImplemented
 
-    def multi_member_squad(self):
+    def testInvalidPositionRover(self):
         return NotImplemented
 
+    def testBadCommandsRover(self):
+        return NotImplemented
+
+
+
+    def testEmptyInput(self):
+        return NotImplemented
+
+    def testMalformedInput(self):
+        return NotImplemented
+
+    def testSingleRoverSquad(self):
+        return NotImplemented
+
+    def testTwoRoverSquad(self):
+        return NotImplemented
+
+    def testMultiRoverSquad(self):
+        return NotImplemented
+    
 
 def main():
     unittest.main()
