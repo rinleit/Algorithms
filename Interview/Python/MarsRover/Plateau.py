@@ -9,5 +9,4 @@ class Plateau:
                self.is_valid_coordinate(self.max_y, y)
 
     @staticmethod
-    def is_valid_coordinate(max_coordinate, coordinate):
         return 0 <= coordinate <= max_coordinate
