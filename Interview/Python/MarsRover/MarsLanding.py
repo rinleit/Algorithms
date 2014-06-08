@@ -1,8 +1,9 @@
+import sys
+import re
 from Plateau import *
 from Rover import *
 from InputErrors import *
 from Utils import *
-import re
 
 
 class MarsLanding:
@@ -17,8 +18,13 @@ class MarsLanding:
     def __init__(self):
         self
 
-    def process_input(self, input_file):
-        f = open(input_file, 'r')
+    def process_input(self, input_file, out=sys.stdout):
+        try:
+            f = open(input_file, 'r')
+        except FileNotFoundError:
+            out.write("ERROR: File '%s' does not exist\n" % input_file)
+            return
+
         try:
             # Read the first line and create the plateau for the rovers
             plateau_input = f.readline()
@@ -34,15 +40,15 @@ class MarsLanding:
             for line1, line2 in zip(remaining_lines[::2], remaining_lines[1::2]):
                 line1 = line1.strip()
                 line2 = line2.strip()
-                rover = self.create_rover(line1, line2, plateau)
+                rover = self.create_rover(line1, line2, plateau, out)
 
                 # Warn about improper rovers but continue with well-formatted ones
                 if rover:
-                    rover.explore()
-                    print(rover.x, rover.y, rover.orientation)
+                    rover.explore(out)
+                    out.write("%s %s %s\n" % (rover.x, rover.y, rover.orientation))
 
         except InputError as e:
-            print(e.msg)
+            out.write(e.msg + "\n")
         finally:
             # Close the file handler even if an error was thrown during execution
             f.close()
@@ -55,7 +61,7 @@ class MarsLanding:
         else:
             raise PlateauInputError
 
-    def create_rover(self, start_position, commands, plateau):
+    def create_rover(self, start_position, commands, plateau, out=sys.stdout):
         raw_position = re.match('^(\d \d [NESW])$', start_position)
         raw_commands = re.match('^[LRM]+$', commands)
 
@@ -64,12 +70,12 @@ class MarsLanding:
             coordinates = convert_to_int_list(formatted_position[:2])
 
             if not plateau.is_valid_position(coordinates[0], coordinates[1]):
-                print(RoverInvalidPositionError().warning(raw_position.group()))
+                out.write(RoverInvalidPositionError().warning(raw_position.group()))
             else:
                 return Rover(coordinates[0], coordinates[1], formatted_position[2], raw_commands.group(), plateau)
         else:
-            print(RoverSetupError().warning(start_position, commands))
+            out.write(RoverSetupError().warning(start_position, commands))
 
 
 if __name__ == '__main__':
-    MarsLanding().process_input('input1')
+    MarsLanding().process_input('MarsRoverTests/TestInput/multiRoverInput')

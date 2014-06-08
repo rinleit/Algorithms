@@ -1,11 +1,14 @@
 import unittest
+import os
 import MarsLanding
 import Plateau
 from InputErrors import *
+from io import StringIO
 
 
 class MarsLandingTest(unittest.TestCase):
 
+    suffix = '' if os.getcwd().split('/')[-1] == 'MarsRoverTests' else 'MarsRoverTests/'
     mars_landing = MarsLanding.MarsLanding()
     plateau = Plateau.Plateau(5, 5)
 
@@ -21,11 +24,11 @@ class MarsLandingTest(unittest.TestCase):
 
     def testCreateNormalRover(self):
         rover = self.mars_landing.create_rover('1 1 N', 'LRM', self.plateau)
-        self.assertEquals(rover.x, 1)
-        self.assertEquals(rover.y, 1)
-        self.assertEquals(rover.orientation, 'N')
-        self.assertEquals(rover.commands, 'LRM')
-        self.assertEquals(rover.plateau, self.plateau)
+        self.assertEqual(rover.x, 1)
+        self.assertEqual(rover.y, 1)
+        self.assertEqual(rover.orientation, 'N')
+        self.assertEqual(rover.commands, 'LRM')
+        self.assertEqual(rover.plateau, self.plateau)
 
     def testBadPositionRover(self):
         rover = self.mars_landing.create_rover('1 1 A', 'LRM', self.plateau)
@@ -40,19 +43,48 @@ class MarsLandingTest(unittest.TestCase):
         self.assertIsNone(rover)
 
     def testEmptyInput(self):
-        return NotImplemented
+        self.__marsLandingOutputHelper(self.suffix + 'TestInput/emptyInput', PlateauInputError().msg)
 
-    def testMalformedInput(self):
-        return NotImplemented
+    def testMalformedPlateauInput(self):
+        self.__marsLandingOutputHelper(self.suffix + 'TestInput/badPlateauInput', PlateauInputError().msg)
+
+    def testMalformedRoverPositionInput(self):
+        self.__marsLandingOutputHelper(self.suffix + 'TestInput/badRoverPositionInput',
+                                       "WARNING: Could not create rover for input '1 6 N'; "
+                                       "rover is not on the plateau.")
+
+    def testMalformedRoverOrientationInput(self):
+        self.__marsLandingOutputHelper(self.suffix + 'TestInput/badRoverOrientationInput',
+                                       "WARNING: Could not create rover for initial position '1 2 A' with "
+                                       "commands 'LMLMLMLMM'; did not meet required formatting standards.")
+
+    def testMalformedRoverCommandInput(self):
+        self.__marsLandingOutputHelper(self.suffix + 'TestInput/badRoverCommandInput',
+                                       "WARNING: Could not create rover for initial position '1 2 N' with commands "
+                                       "'LMLMLMLMMA'; did not meet required formatting standards.")
+
+    def testNoRoversInput(self):
+        self.__marsLandingOutputHelper(self.suffix + 'TestInput/noRoverInput', '')
 
     def testSingleRoverSquad(self):
-        return NotImplemented
+        self.__marsLandingOutputHelper(self.suffix + 'TestInput/singleRoverInput',
+                                       "1 3 N")
 
     def testTwoRoverSquad(self):
-        return NotImplemented
+        self.__marsLandingOutputHelper(self.suffix + 'TestInput/twoRoverInput',
+                                       "1 3 N\n5 1 E")
 
     def testMultiRoverSquad(self):
-        return NotImplemented
+        self.__marsLandingOutputHelper(self.suffix + 'TestInput/multiRoverInput',
+                                       "1 3 N\n5 1 E\n4 0 S")
+
+    def __marsLandingOutputHelper(self, filename, output_message):
+        out = StringIO()
+        print(out.getvalue())
+        self.mars_landing.process_input(filename, out)
+        output = out.getvalue().strip()
+        self.assertEqual(output, output_message)
+
 
 
 def main():

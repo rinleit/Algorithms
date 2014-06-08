@@ -6,8 +6,8 @@ class PlateauTest(unittest.TestCase):
 
     def testNormalPlateau(self):
         plateau = Plateau.Plateau(5, 3)
-        self.assertEquals(plateau.max_x, 5)
-        self.assertEquals(plateau.max_y, 3)
+        self.assertEqual(plateau.max_x, 5)
+        self.assertEqual(plateau.max_y, 3)
 
     def testBadPlateau(self):
         self.assertRaises(ValueError, Plateau.Plateau, 'a', 3)
