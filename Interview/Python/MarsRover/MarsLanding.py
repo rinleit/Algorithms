@@ -1,4 +1,3 @@
-import sys
 import re
 from Plateau import *
 from Rover import *
@@ -53,7 +52,8 @@ class MarsLanding:
             # Close the file handler even if an error was thrown during execution
             f.close()
 
-    def create_plateau(self, plateau_input):
+    @staticmethod
+    def create_plateau(plateau_input):
         raw_plateau = re.match('^(\d \d)$', plateau_input)
         if raw_plateau:
             coordinates = raw_plateau.group().split()
@@ -61,7 +61,8 @@ class MarsLanding:
         else:
             raise PlateauInputError
 
-    def create_rover(self, start_position, commands, plateau, out=sys.stdout):
+    @staticmethod
+    def create_rover(start_position, commands, plateau, out=sys.stdout):
         raw_position = re.match('^(\d \d [NESW])$', start_position)
         raw_commands = re.match('^[LRM]+$', commands)
 
@@ -78,4 +79,7 @@ class MarsLanding:
 
 
 if __name__ == '__main__':
-    MarsLanding().process_input('MarsRoverTests/TestInput/multiRoverInput')
+    if len(sys.argv[1:]) < 1:
+        print("ERROR: Please supply an input file name")
+    else:
+        MarsLanding().process_input(sys.argv[1])

@@ -74,8 +74,3 @@ class Rover:
         else:
             out.write("WARNING: Illegal to move to coordinate %s %s. Move command ignored.\n" % (x, y))
             return False
-
-if __name__ == '__main__':
-    import Plateau
-    rover = Rover(['1', '2', 'N'], 'LMLMLMLMM', Plateau.Plateau([5, 5]))
-    rover.explore()
