@@ -42,8 +42,21 @@ Design Process:
     the initialization of the rover, as well it's functions to explore, spin and move, as well as the helper methods
     used to facilitate those actions.
 
-    Finally, the class to tie all of this together, MarsLanding. 
+    Finally, the class to tie all of this together, MarsLanding. It will ensure the minimum number of command line
+    arguments (1) are specified, that the specified file exists and can be read, and finally, read the input file and
+    try to create a plateau, the rovers intended to explore it, and to actually have them explore the plateau. If the
+    plateau can not be created properly, the program will quit. Regex is used to validate the input format and type, as
+    seen in the methods to create a plateau or rover. Zip is used to read two lines at once, as each rover should have
+    two lines of input. For each rover that was initialized properly, it's called to explore, and the resulting location
+    is printed out. If a rover is not initialized, a warning is outputted, and the method will continue on with the rest
+    of the input.
 
+    Testing for this class involved a few test cases for the processing of plateau and rover input, and the end-to-end
+    execution of the program. Mock input files exist in the TestInput folder, and test a variety of scenarios that could
+    be encountered during execution.
+
+    InputErrors contain a collection of errors that can be encountered during execution, related to problems with the
+    input in a specified file. Utils contains a a couple of methods that are generic enough to warrant it's own class.
 
     The MarsLanding and Rover classes both avoid print statements and instead call out.write(). This is aid
     unit testing, where the output can be intercepted and analyzed. For some methods, especially the main method of the

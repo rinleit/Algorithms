@@ -1,5 +1,6 @@
 import sys
 
+
 class Rover:
 
     def __init__(self, x, y, orientation, commands, plateau):

@@ -42,6 +42,9 @@ class MarsLandingTest(unittest.TestCase):
         rover = self.mars_landing.create_rover('1 1 N', 'LRMA', self.plateau)
         self.assertIsNone(rover)
 
+    def testNonExistantInput(self):
+        self.__marsLandingOutputHelper('', "ERROR: File '' does not exist")
+
     def testEmptyInput(self):
         self.__marsLandingOutputHelper(self.suffix + 'TestInput/emptyInput', PlateauInputError().msg)
 
