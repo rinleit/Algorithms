@@ -2,10 +2,10 @@ Mars Rovers
 ===========
 
 Usage:
-    1. Extract contents of MarsRovers.zip
-    2. From the command line, 'python3 MarsLanding.py <inputFileName>'
+    1.  Extract contents of MarsRovers.zip
+    2.  From the command line, 'python3 MarsLanding.py <inputFileName>'
         'python3 MarsLanding.py input1' mirrors the example input provided
-    3. To run the test suite, 'python3 RunTests.py'
+    3.  To run the test suite, 'python3 RunTests.py'
 
 Design Process:
     When designing my solution, I split the problem up into three sections: the main class, to handle input and output,
