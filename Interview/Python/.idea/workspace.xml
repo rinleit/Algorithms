@@ -32,10 +32,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fileReader/fileReader/app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="9" selection-start="587" selection-end="587" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629">
+            <state line="28" column="18" selection-start="820" selection-end="820" vertical-scroll-proportion="0.68489206" vertical-offset="0" max-vertical-offset="695">
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
               </folding>
@@ -43,10 +43,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/fileReader/fileReader/settings.py">
+      <file leaf-file-name="home.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fileReader/fileReader/app/templates/app/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="35" selection-start="1681" selection-end="1681" vertical-scroll-proportion="0.37117904" vertical-offset="867" max-vertical-offset="1513">
+            <state line="11" column="19" selection-start="221" selection-end="221" vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="527">
               <folding />
             </state>
           </provider>
@@ -74,8 +74,8 @@
         <option value="$PROJECT_DIR$/fileReader/fileReader/app/models.py" />
         <option value="$PROJECT_DIR$/fileUpload/newproject/newproject/app/models.py" />
         <option value="$PROJECT_DIR$/fileReader/fileReader/app/forms.py" />
-        <option value="$PROJECT_DIR$/fileReader/fileReader/app/templates/app/home.html" />
         <option value="$PROJECT_DIR$/fileReader/fileReader/urls.py" />
+        <option value="$PROJECT_DIR$/fileReader/fileReader/app/templates/app/home.html" />
         <option value="$PROJECT_DIR$/fileReader/fileReader/app/views.py" />
       </list>
     </option>
@@ -128,6 +128,60 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Python" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Python" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Python" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fileReader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Python" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Python" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fileReader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fileReader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Python" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Python" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fileReader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fileReader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -273,18 +327,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32871014" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871014" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14774889" sideWeight="0.67128986" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14774889" sideWeight="0.67128986" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871014" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -345,23 +399,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fileUpload/newproject/newproject/app/templates/app/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="46" selection-start="571" selection-end="571" vertical-scroll-proportion="-14.384615" vertical-offset="0" max-vertical-offset="663">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fileUpload/newproject/newproject/app/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="29" selection-start="112" selection-end="112" vertical-scroll-proportion="0.12230216" vertical-offset="0" max-vertical-offset="695">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fileReader/fileReader/app/templates/app/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="15" selection-start="372" selection-end="407" vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="459">
           <folding />
         </state>
       </provider>
@@ -394,9 +434,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/fileReader/fileReader/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="35" selection-start="1681" selection-end="1681" vertical-scroll-proportion="0.3151079" vertical-offset="818" max-vertical-offset="1513">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/fileUpload/newproject/newproject/app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="48" selection-start="254" selection-end="254" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
+        <state line="27" column="21" selection-start="889" selection-end="889" vertical-scroll-proportion="0.6604317" vertical-offset="0" max-vertical-offset="695">
+          <folding>
+            <element signature="e#24#71#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fileUpload/newproject/newproject/app/templates/app/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="19" selection-start="128" selection-end="385" vertical-scroll-proportion="0.43198803" vertical-offset="0" max-vertical-offset="669">
           <folding />
         </state>
       </provider>
@@ -408,19 +464,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fileReader/fileReader/app/views.py">
+    <entry file="file://$PROJECT_DIR$/fileReader/fileReader/app/templates/app/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="9" selection-start="587" selection-end="587" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629">
-          <folding>
-            <element signature="e#0#47#0" expanded="true" />
-          </folding>
+        <state line="11" column="19" selection-start="221" selection-end="221" vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="527">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fileReader/fileReader/settings.py">
+    <entry file="file://$PROJECT_DIR$/fileReader/fileReader/app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="35" selection-start="1681" selection-end="1681" vertical-scroll-proportion="0.37117904" vertical-offset="867" max-vertical-offset="1513">
-          <folding />
+        <state line="28" column="18" selection-start="820" selection-end="820" vertical-scroll-proportion="0.68489206" vertical-offset="0" max-vertical-offset="695">
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

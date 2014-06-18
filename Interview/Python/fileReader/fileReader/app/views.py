@@ -12,8 +12,6 @@ def home(request):
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
             handle_uploaded_file(request.FILES['uploadedfile'])
-
-            # Redirect home after POST
             return HttpResponseRedirect(reverse('fileReader.app.views.home'))
     else:
         # A empty, unbound form
@@ -28,5 +26,8 @@ def home(request):
 
 
 def handle_uploaded_file(f):
-    for chunk in f.chunks():
-        print(chunk)
+    print(f.read())
+    with open('temp.txt', 'wb+') as destination:
+        for chunk in f.chunks():
+            print(chunk.strip())
+            destination.write(chunk)

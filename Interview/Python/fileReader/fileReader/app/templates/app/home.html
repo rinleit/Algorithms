@@ -6,6 +6,10 @@
 	</head>
 
 	<body>
+        <!-- Uploaded file contents -->
+		{% if html %}
+            {{ html | safe }}
+		{% endif %}
         <!-- Upload form -->
 		<form action="{% url "home" %}" method="post" enctype="multipart/form-data">
 			{% csrf_token %}
