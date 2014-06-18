@@ -1,0 +1,7 @@
+*.pyc
+*.sublime-project
+*.sublime-workspace
+.idea/*
+.idea_modules/*
+atlassian-ide-plugin.xml
+*.iml

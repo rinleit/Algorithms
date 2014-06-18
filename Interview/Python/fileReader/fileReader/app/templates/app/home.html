@@ -2,12 +2,21 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Minimal Django File Upload Example</title>
+		<title>Django Upload and Read Example</title>
 	</head>
 
 	<body>
-        <h2>Hi</h2>
-
-	</body>
+        <!-- Upload form -->
+		<form action="{% url "home" %}" method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			<p>{{ form.non_field_errors }}</p>
+			<p>{{ form.uploadedfile.label_tag }} {{ form.uploadedfile.help_text }}</p>
+			<p>
+				{{ form.uploadedfile.errors }}
+				{{ form.uploadedfile }}
+			</p>
+			<p><input type="submit" value="Upload" /></p>
+		</form>
+    </body>
 
 </html>
