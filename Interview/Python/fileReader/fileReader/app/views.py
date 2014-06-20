@@ -17,7 +17,7 @@ def home(request):
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
             handle_uploaded_file(request.FILES['uploadedfile'])
-            return HttpResponseRedirect(reverse('fileReader.app.views.home'))
+            return HttpResponseRedirect(reverse('fileReader.app.views.result'))
     else:
         # A empty, unbound form
         form = UploadFileForm()
@@ -43,3 +43,14 @@ def handle_uploaded_file(f):
                                    tax_name=row[6],
                                    tax_amount=Decimal(row[7].strip().replace(',', '')))
         company_data.save()
+
+
+def result(request):
+    # Load documents for the list page
+    data = CompanyData.objects.all()
+
+    return render_to_response(
+        'app/result.html',
+        {'data': data},
+        context_instance=RequestContext(request)
+    )

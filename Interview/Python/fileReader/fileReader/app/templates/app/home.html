@@ -2,14 +2,10 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Django Upload and Read Example</title>
+		<title>Home - Django Upload and Read Example</title>
 	</head>
 
 	<body>
-        <!-- Uploaded file contents -->
-		{% if html %}
-            {{ html | safe }}
-		{% endif %}
         <!-- Upload form -->
 		<form action="{% url "home" %}" method="post" enctype="multipart/form-data">
 			{% csrf_token %}
