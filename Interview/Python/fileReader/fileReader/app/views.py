@@ -36,7 +36,7 @@ def handle_uploaded_file(f):
     next(csv_data)
     for row in csv_data:
         #TODO try-catch for value errors
-        company_data = CompanyData(date=datetime.strptime(row[0], "%m/%d/%Y").date(),
+        company_data = CompanyData(date=datetime.strptime(row[0], '%m/%d/%Y').date(),
                                    category=row[1],
                                    employee_name=row[2],
                                    employee_address=row[3],
