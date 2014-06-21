@@ -8,9 +8,9 @@
 	<body>
         <!-- Uploaded file contents -->
 		{% if data %}
-            <ul>
-			{% for data in data %}
-				<li>{{ data.tax_amount }} + {{ data.tax_amount }}</li>
+			<ul>
+			{% for row in data %}
+				<li>{{ row.month }} {{ row.tax_amount__sum }} {{ row.pre_tax_amount__sum }} {{ row.expense }}</li>
 			{% endfor %}
 			</ul>
         {% else %}

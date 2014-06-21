@@ -2,8 +2,9 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
+from django.db.models import Sum, connection
 from datetime import datetime
-from decimal import *
+from decimal import Decimal
 import csv
 import codecs
 
@@ -34,6 +35,7 @@ def handle_uploaded_file(f):
     csv_data = csv.reader(codecs.iterdecode(f, 'utf-8'), delimiter=',', quotechar='"')
     next(csv_data)
     for row in csv_data:
+        #TODO try-catch for value errors
         company_data = CompanyData(date=datetime.strptime(row[0], "%m/%d/%Y").date(),
                                    category=row[1],
                                    employee_name=row[2],
@@ -46,8 +48,14 @@ def handle_uploaded_file(f):
 
 
 def result(request):
-    # Load documents for the list page
-    data = CompanyData.objects.all()
+    # Generate results for result page
+    truncate_date = connection.ops.date_trunc_sql('month', 'date')
+    qs = CompanyData.objects.extra({'month': truncate_date})
+    data = qs.values('month').annotate(Sum('tax_amount'), Sum('pre_tax_amount')).order_by('month')
+
+    #TODO make expense column part of SQL query
+    for row in data:
+        row['expense'] = row.get('tax_amount__sum') + row.get('pre_tax_amount__sum')
 
     return render_to_response(
         'app/result.html',
