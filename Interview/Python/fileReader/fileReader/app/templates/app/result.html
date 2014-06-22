@@ -3,16 +3,43 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Result - Django Upload and Read Example</title>
+        <style>
+        table,th,td
+        {
+            border:1px solid black;
+            border-collapse:collapse;
+            padding:5px;
+        }
+        table
+        {
+            width:500px;
+        }
+        td
+        {
+            text-align:center;
+        }
+        </style>
 	</head>
 
 	<body>
         <!-- Uploaded file contents -->
 		{% if data %}
-			<ul>
+            <table>
+            <tr>
+              <th>Month</th>
+              <th>Subtotal</th>
+              <th>Taxes</th>
+              <th>Total</th>
+            </tr>
 			{% for row in data %}
-				<li>{{ row.month }} {{ row.tax_amount__sum }} {{ row.pre_tax_amount__sum }} {{ row.expense }}</li>
+                <tr>
+				<td>{{ row.month }}</td>
+                <td>${{ row.pre_tax_amount__sum }}</td>
+                <td>${{ row.tax_amount__sum }}</td>
+                <td>${{ row.total }}</td>
+                </tr>
 			{% endfor %}
-			</ul>
+            </table>
         {% else %}
 			<p>No data</p>
 		{% endif %}
