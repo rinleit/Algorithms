@@ -1,0 +1,23 @@
+table,th,td {
+    border:1px solid black;
+    border-collapse:collapse;
+    padding:5px;
+}
+
+table {
+    width:500px;
+}
+
+td {
+    text-align:center;
+}
+
+$('#container').highcharts({
+    xAxis: {
+        categories: ["United States", "Western Europe", "Canada",
+                     "Germany", "France", "Mexico"]
+    },
+    series: [{
+        data: [50, 100, 150, 200, 250, 300]
+    }]
+});

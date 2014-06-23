@@ -55,6 +55,7 @@ def result(request):
 
     #TODO make expense column part of SQL query
     for row in data:
+        row['dateMonth'] = datetime.strptime(row['month'], '%Y-%m-%d').date()
         row['total'] = row.get('tax_amount__sum') + row.get('pre_tax_amount__sum')
 
     return render_to_response(
