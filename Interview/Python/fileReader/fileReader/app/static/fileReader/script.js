@@ -1,3 +1,3 @@
 $(document).ready(function() {
-  $('table.highchart').highchartTable();
+  $('table.sortable').highchartTable();
 });
