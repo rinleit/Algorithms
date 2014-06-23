@@ -4,14 +4,12 @@
 		<meta charset="utf-8">
         {% load staticfiles %}
         <link type="text/css" rel="stylesheet" href="/static/fileReader/style.css"/>
-        <script src="http://code.highcharts.com/highcharts.js"></script>
 		<title>Result - Django Upload and Read Example</title>
 	</head>
 
 	<body>
         <!-- Uploaded file contents -->
 		{% if data %}
-        <div id="container" style="min-width: 300px; height: 300px; margin: 1em">
             <table>
             <tr>
               <th>Month</th>
@@ -29,7 +27,6 @@
                 </tr>
 			{% endfor %}
             </table>
-        </div>
         {% else %}
 			<p>No data</p>
 		{% endif %}
