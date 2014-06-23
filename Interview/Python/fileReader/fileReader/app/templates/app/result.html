@@ -2,42 +2,42 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Result - Django Upload and Read Example</title>
+		<title>Wave Subsidiary Data</title>
+        {% load staticfiles %}
         <script src="/static/fileReader/jquery.min.js" type="text/javascript"></script>
         <script src="/static/fileReader/highcharts.js" type="text/javascript"></script>
         <script src="/static/fileReader/jquery.highchartTable.js" type="text/javascript"></script>
         <script src="/static/fileReader/script.js" type="text/javascript"></script>
-        {% load staticfiles %}
+        <script src="/static/fileReader/sorttable.js"></script>
         <link type="text/css" rel="stylesheet" href="/static/fileReader/style.css"/>
 	</head>
 
 	<body>
         <!-- Uploaded file contents -->
 		{% if data %}
-            <table class="highchart"
-              data-graph-container=".. .. .highchart-container"
-              data-graph-type="line">
-              <caption>Total expenses Amount Per Month for Wave Subsidiary</caption>
+            <table class="sortable" data-graph-container="#graphcontainer" data-graph-type="column" align="center">
+              <caption>Total Expenses Per Month for Wave Subsidiary</caption>
                 <thead>
-                <tr>
-                  <th>Month</th>
-                  <th>Subtotal</th>
-                  <th>Taxes</th>
-                  <th>Total</th>
-                </tr>
+                    <tr>
+                      <th>Month</th>
+                      <th>Expenses Subtotal</th>
+                      <th>Taxes</th>
+                      <th>Total Expenses</th>
+                    </tr>
                </thead>
                <tbody>
                {% for row in data %}
-                    {% load humanize %}
                     <tr>
-                    <td>{{ row.dateMonth|date:'M Y' }}</td>
-                    <td>${{ row.pre_tax_amount__sum|intcomma }}</td>
-                    <td>${{ row.tax_amount__sum|intcomma }}</td>
-                    <td>${{ row.total|intcomma }}</td>
+                        <td>{{ row.dateMonth|date:'M Y' }}</td>
+                        <td>{{ row.pre_tax_amount__sum }}</td>
+                        <td>{{ row.tax_amount__sum }}</td>
+                        <td>{{ row.total }}</td>
                     </tr>
                {% endfor %}
                </tbody>
             </table>
+            <br/><br/>
+            <div id="graphcontainer"></div>
         {% else %}
 			<p>No data</p>
 		{% endif %}
