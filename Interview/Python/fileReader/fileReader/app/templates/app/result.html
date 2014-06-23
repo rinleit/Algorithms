@@ -16,7 +16,7 @@
 		{% if data %}
             <table class="highchart"
               data-graph-container=".. .. .highchart-container"
-              data-graph-type="column">
+              data-graph-type="line">
               <caption>Total expenses Amount Per Month for Wave Subsidiary</caption>
                 <thead>
                 <tr>
@@ -26,8 +26,8 @@
                   <th>Total</th>
                 </tr>
                </thead>
-                <tbody>
-                {% for row in data %}
+               <tbody>
+               {% for row in data %}
                     {% load humanize %}
                     <tr>
                     <td>{{ row.dateMonth|date:'M Y' }}</td>
@@ -35,8 +35,8 @@
                     <td>${{ row.tax_amount__sum|intcomma }}</td>
                     <td>${{ row.total|intcomma }}</td>
                     </tr>
-                {% endfor %}
-                </tbody>
+               {% endfor %}
+               </tbody>
             </table>
         {% else %}
 			<p>No data</p>
