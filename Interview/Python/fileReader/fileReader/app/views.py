@@ -13,6 +13,7 @@ from fileReader.app.models import CompanyData
 
 
 def home(request):
+    print(type(request))
     # Handle file upload
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)

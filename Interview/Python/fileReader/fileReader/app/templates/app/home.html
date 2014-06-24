@@ -3,9 +3,12 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Home - Django Upload and Read Example</title>
+        {% load staticfiles %}
+        <link type="text/css" rel="stylesheet" href="/static/fileReader/home/style.css"/>
 	</head>
 
 	<body>
+        <a href="{% url "result" %}">See current data</a>
         <!-- Upload form -->
 		<form action="{% url "home" %}" method="post" enctype="multipart/form-data">
 			{% csrf_token %}
@@ -15,7 +18,7 @@
 				{{ form.uploadedfile.errors }}
 				{{ form.uploadedfile }}
 			</p>
-			<p><input type="submit" value="Upload" /></p>
+			<input type="submit" value="Upload" />
 		</form>
     </body>
 </html>

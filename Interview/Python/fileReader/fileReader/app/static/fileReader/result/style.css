@@ -21,3 +21,7 @@ td {
 caption {
     display: none;
 }
+
+html * {
+    font-family:"Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif !important;
+}
