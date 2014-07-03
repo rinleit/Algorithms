@@ -15,12 +15,6 @@ class MarsLanding:
         The second line will be the instructions for that rover.
     The output will be each rover's final coordinates and orientation.
     """
-    def __init__(self):
-        """
-        Create a new instance of the MarsLanding class
-        :return: A new instance of MarsLanding
-        """
-        self
 
     def process_input(self, input_file, out=sys.stdout):
         """
@@ -42,6 +36,11 @@ class MarsLanding:
             plateau_input = f.readline()
             plateau = self.create_plateau(plateau_input)
 
+            # Implementation that avoids loading entire file into memory
+            # first_line = f.readline()
+            # while first_line:
+            #     second_line = f.readline()
+
             # Read the rest of the lines
             remaining_lines = f.readlines()
 
@@ -58,6 +57,9 @@ class MarsLanding:
                 if rover:
                     rover.explore(out)
                     out.write("%s %s %s\n" % (rover.x, rover.y, rover.orientation))
+
+                # Implementation that avoids loading entire file into memory
+                # first_line = f.readline()
 
         except InputError as e:
             out.write(e.msg + "\n")

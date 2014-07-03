@@ -25,6 +25,7 @@ class Rover:
         self.orientation = orientation
         self.commands = commands
         self.plateau = plateau
+        self.directions = 'NESW'
 
     def explore(self, out=sys.stdout):
         """
@@ -101,6 +102,16 @@ class Rover:
         :param out: Output stream for messages during execution
         :return: None
         """
+
+        
+        # Alternate solution avoid big if block. Change can_move to set rover position itself.
+        # moves = {}
+        # moves['N'] = self.x, self.y +1
+
+        # if self.orienientation not in moves:
+        #         can_move(moves[self.orientation])
+
+
         if self.orientation == 'N':
             if self.can_move(self.x, self.y + 1, out):
                 self.y += 1
@@ -116,6 +127,8 @@ class Rover:
         else:
             # We shouldn't be here because of regex, but just in case
             out.write("WARNING: Unrecognized rover orientation\n")
+
+
 
     def can_move(self, x, y, out=sys.stdout):
         """
